@@ -858,6 +858,46 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(180deg, var(--gray-50) 0%, var(--cream) 100%);
 }
 
+.awards-showcase {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 56px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    border-top: 3px solid var(--gold);
+    position: relative;
+}
+
+.awards-showcase::before,
+.awards-showcase::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    opacity: 0.4;
+}
+
+.awards-showcase::before {
+    left: -30px;
+}
+
+.awards-showcase::after {
+    right: -30px;
+}
+
+.awards-showcase img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: var(--radius-sm);
+}
+
 .awards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1488,6 +1528,15 @@ h1, h2, h3, h4, h5, h6 {
     .awards-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+
+    .awards-showcase {
+        padding: 28px 20px;
+    }
+
+    .awards-showcase::before,
+    .awards-showcase::after {
+        display: none;
     }
 
     .borough-banner {
