@@ -1603,32 +1603,37 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
-/* Mobile adjustments */
-@media (max-width: 480px) {
-    .chatbot-window {
-        width: calc(100vw - 16px);
-        height: calc(100vh - 120px);
-        right: 8px;
-        bottom: 96px;
-        border-radius: 12px;
-    }
-
+/* Mobile: full-screen chat overlay */
+@media (max-width: 768px) {
     .chatbot-bubble {
-        bottom: 16px;
+        bottom: 80px;
         right: 16px;
         width: 60px;
         height: 60px;
     }
-}
-
-/* Push bubble above mobile sticky CTA */
-@media (max-width: 768px) {
-    .chatbot-bubble {
-        bottom: 80px;
-    }
 
     .chatbot-window {
-        bottom: 160px;
-        max-height: calc(100vh - 180px);
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        z-index: 10000;
+    }
+
+    .chatbot-header {
+        padding: 16px;
+        padding-top: max(16px, env(safe-area-inset-top));
+    }
+
+    .chatbot-close {
+        font-size: 2rem;
+        padding: 8px 12px;
+        opacity: 1;
+    }
+
+    /* Hide sticky CTA when chat is open */
+    body.chatbot-open .mobile-sticky-cta {
+        display: none;
     }
 }

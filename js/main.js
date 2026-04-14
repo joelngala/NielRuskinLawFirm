@@ -127,11 +127,13 @@ document.addEventListener('DOMContentLoaded', function () {
         function openChat() {
             win.classList.add('open');
             bubble.style.display = 'none';
+            document.body.classList.add('chatbot-open');
         }
 
         function closeChat() {
             win.classList.remove('open');
             bubble.style.display = '';
+            document.body.classList.remove('chatbot-open');
         }
 
         bubble.addEventListener('click', openChat);
