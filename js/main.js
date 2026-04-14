@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bubble.className = 'chatbot-bubble';
         bubble.setAttribute('aria-label', 'Open chat');
         bubble.innerHTML =
-            '<img src="' + imgBase + 'virtual-consultant.png" alt="Virtual Consultant">' +
+            '<img src="' + imgBase + 'virtual-consultant.png" alt="Gia Caruso">' +
             '<span class="bubble-pulse"></span>';
 
         // Build chat window
@@ -110,15 +110,15 @@ document.addEventListener('DOMContentLoaded', function () {
         win.className = 'chatbot-window';
         win.innerHTML =
             '<div class="chatbot-header">' +
-                '<img src="' + imgBase + 'virtual-consultant.png" alt="Virtual Consultant">' +
+                '<img src="' + imgBase + 'virtual-consultant.png" alt="Gia Caruso">' +
                 '<div class="chatbot-header-info">' +
-                    '<div class="chatbot-header-name">Virtual Consultant</div>' +
+                    '<div class="chatbot-header-name">Gia Caruso</div>' +
                     '<div class="chatbot-header-status">Online now</div>' +
                 '</div>' +
                 '<button class="chatbot-close" aria-label="Close chat">&times;</button>' +
             '</div>' +
             '<div class="chatbot-body">' +
-                '<iframe src="' + chatbotURL + '" title="Chat with our virtual consultant" allow="microphone"></iframe>' +
+                '<iframe src="' + chatbotURL + '" title="Chat with Gia Caruso" allow="microphone"></iframe>' +
             '</div>';
 
         document.body.appendChild(bubble);
