@@ -1469,8 +1469,8 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 24px;
     right: 24px;
     z-index: 9999;
-    width: 68px;
-    height: 68px;
+    width: 86px;
+    height: 86px;
     border-radius: 50%;
     border: 3px solid var(--gold);
     cursor: pointer;
@@ -1552,8 +1552,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .chatbot-header img {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--gold);
@@ -1608,8 +1608,8 @@ h1, h2, h3, h4, h5, h6 {
     .chatbot-bubble {
         bottom: 80px;
         right: 16px;
-        width: 60px;
-        height: 60px;
+        width: 76px;
+        height: 76px;
     }
 
     .chatbot-window {
