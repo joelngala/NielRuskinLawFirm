@@ -91,6 +91,56 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // --- Chatbot Widget ---
+    (function () {
+        var isSubpage = window.location.pathname.indexOf('/pages/') !== -1;
+        var imgBase = isSubpage ? '../images/' : 'images/';
+        var chatbotURL = 'https://joelngala.github.io/sphericalassistant/?page=intake&firm=Neil+Ruskin+Law+Firm';
+
+        // Build bubble
+        var bubble = document.createElement('div');
+        bubble.className = 'chatbot-bubble';
+        bubble.setAttribute('aria-label', 'Open chat');
+        bubble.innerHTML =
+            '<img src="' + imgBase + 'virtual-consultant.png" alt="Virtual Consultant">' +
+            '<span class="bubble-pulse"></span>';
+
+        // Build chat window
+        var win = document.createElement('div');
+        win.className = 'chatbot-window';
+        win.innerHTML =
+            '<div class="chatbot-header">' +
+                '<img src="' + imgBase + 'virtual-consultant.png" alt="Virtual Consultant">' +
+                '<div class="chatbot-header-info">' +
+                    '<div class="chatbot-header-name">Virtual Consultant</div>' +
+                    '<div class="chatbot-header-status">Online now</div>' +
+                '</div>' +
+                '<button class="chatbot-close" aria-label="Close chat">&times;</button>' +
+            '</div>' +
+            '<div class="chatbot-body">' +
+                '<iframe src="' + chatbotURL + '" title="Chat with our virtual consultant" allow="microphone"></iframe>' +
+            '</div>';
+
+        document.body.appendChild(bubble);
+        document.body.appendChild(win);
+
+        function openChat() {
+            win.classList.add('open');
+            bubble.style.display = 'none';
+        }
+
+        function closeChat() {
+            win.classList.remove('open');
+            bubble.style.display = '';
+        }
+
+        bubble.addEventListener('click', openChat);
+        win.querySelector('.chatbot-close').addEventListener('click', closeChat);
+
+        // Auto-open after 2 seconds
+        setTimeout(openChat, 2000);
+    })();
+
     // --- Contact form demo handling ---
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
