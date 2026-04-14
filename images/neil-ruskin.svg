@@ -1,0 +1,36 @@
+<svg width="720" height="820" viewBox="0 0 720 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="820" rx="28" fill="#0A1628"/>
+  <rect x="24" y="24" width="672" height="772" rx="20" fill="url(#bg)"/>
+  <path d="M63 640C146 553 233 509 327 509C430 509 512 549 658 674V796H63V640Z" fill="#14243E"/>
+  <path d="M44 736C141 629 255 579 360 579C462 579 560 622 676 728V796H44V736Z" fill="#1E3656"/>
+  <g opacity="0.65">
+    <path d="M83 606H132V796H83V606Z" fill="#0E1F35"/>
+    <path d="M132 556H182V796H132V556Z" fill="#0E1F35"/>
+    <path d="M205 592H258V796H205V592Z" fill="#0E1F35"/>
+    <path d="M276 519H334V796H276V519Z" fill="#0E1F35"/>
+    <path d="M361 548H419V796H361V548Z" fill="#0E1F35"/>
+    <path d="M444 501H506V796H444V501Z" fill="#0E1F35"/>
+    <path d="M530 568H583V796H530V568Z" fill="#0E1F35"/>
+  </g>
+  <circle cx="365" cy="252" r="119" fill="#C9A84C"/>
+  <path d="M262 416C262 355 311 306 372 306C432 306 481 355 481 416V503H262V416Z" fill="#E6E0D4"/>
+  <path d="M294 255C294 191 335 142 393 142C453 142 489 191 489 255C489 311 446 352 391 352C337 352 294 311 294 255Z" fill="#E5C19D"/>
+  <path d="M305 241C305 178 343 130 402 130C455 130 491 171 491 237V260C483 257 476 245 470 225C445 240 405 248 349 248C332 248 318 246 305 241Z" fill="#18273B"/>
+  <path d="M342 240C358 233 384 217 404 192C421 214 449 230 470 237" stroke="#24364F" stroke-width="14" stroke-linecap="round"/>
+  <path d="M337 290C349 304 366 311 389 311C411 311 430 304 443 290" stroke="#A16D54" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="349" cy="254" r="8" fill="#2A1D19"/>
+  <circle cx="431" cy="254" r="8" fill="#2A1D19"/>
+  <path d="M314 420C346 401 381 392 418 392C451 392 483 400 514 418V559H314V420Z" fill="#1B2E47"/>
+  <path d="M346 422L390 470L435 422L415 392H365L346 422Z" fill="#F6F3EC"/>
+  <rect x="379" y="442" width="24" height="117" rx="8" fill="#C9A84C"/>
+  <path d="M232 760H575" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <text x="360" y="691" text-anchor="middle" fill="#F6F4EE" font-family="Georgia, serif" font-size="38" font-weight="700">Attorney Portrait</text>
+  <text x="360" y="730" text-anchor="middle" fill="#D3D8E0" font-family="Arial, sans-serif" font-size="20">Replace this SVG with the final Neil Ruskin photo asset</text>
+  <defs>
+    <linearGradient id="bg" x1="68" y1="64" x2="657" y2="786" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12233B"/>
+      <stop offset="0.55" stop-color="#1A3150"/>
+      <stop offset="1" stop-color="#0D1C2F"/>
+    </linearGradient>
+  </defs>
+</svg>

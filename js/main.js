@@ -1,0 +1,125 @@
+// Neil Ruskin Law Firm - Main JS
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // --- Mobile Nav Toggle ---
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function () {
+            navMenu.classList.toggle('open');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        navMenu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                navMenu.classList.remove('open');
+                navToggle.classList.remove('active');
+            });
+        });
+    }
+
+    // --- Sticky Navbar Shadow ---
+    const navbar = document.getElementById('navbar');
+
+    if (navbar) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // --- Scroll-In Animations ---
+    const animatedCards = document.querySelectorAll(
+        '.feature-card, .practice-card, .testimonial-card, .area-card'
+    );
+
+    if (animatedCards.length > 0 && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            }
+        );
+
+        animatedCards.forEach(function (card, index) {
+            // Stagger the animation
+            card.style.transitionDelay = (index % 4) * 0.1 + 's';
+            observer.observe(card);
+        });
+    } else {
+        // Fallback: show all immediately
+        animatedCards.forEach(function (card) {
+            card.classList.add('visible');
+        });
+    }
+
+    // --- Mobile dropdown toggle (tap to open on mobile) ---
+    const dropdownParents = document.querySelectorAll('.has-dropdown');
+
+    dropdownParents.forEach(function (parent) {
+        const link = parent.querySelector(':scope > a');
+        if (link && window.innerWidth <= 768) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                parent.classList.toggle('dropdown-open');
+            });
+        }
+    });
+
+    // --- Smooth scroll for anchor links ---
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // --- Contact form demo handling ---
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const subject = 'Consultation Request - Neil Ruskin Law Firm';
+            const lines = [
+                'Full Name: ' + (formData.get('name') || ''),
+                'Phone Number: ' + (formData.get('phone') || ''),
+                'Email Address: ' + (formData.get('email') || ''),
+                'Type of Charge: ' + (formData.get('case-type') || ''),
+                '',
+                'Brief Description:',
+                formData.get('message') || ''
+            ];
+            const body = encodeURIComponent(lines.join('\n'));
+            const mailtoHref = 'mailto:info@neilruskinlawfirm.com?subject=' +
+                encodeURIComponent(subject) + '&body=' + body;
+
+            if (formSuccess) {
+                formSuccess.hidden = false;
+            }
+
+            window.location.href = mailtoHref;
+        });
+    }
+
+});
