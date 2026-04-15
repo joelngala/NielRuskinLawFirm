@@ -105,6 +105,14 @@ document.addEventListener('DOMContentLoaded', function () {
             '<img src="' + imgBase + 'virtual-consultant.png" alt="Gia Caruso">' +
             '<span class="bubble-pulse"></span>';
 
+        // Build teaser message that pops up next to the bubble
+        var teaser = document.createElement('div');
+        teaser.className = 'chatbot-teaser';
+        teaser.innerHTML =
+            '<button class="chatbot-teaser-close" aria-label="Dismiss">&times;</button>' +
+            '<div class="chatbot-teaser-name">Gia Caruso</div>' +
+            '<div class="chatbot-teaser-text">Hi! Have a question about your case? I can help — tap to chat.</div>';
+
         // Build chat window
         var win = document.createElement('div');
         win.className = 'chatbot-window';
@@ -122,11 +130,13 @@ document.addEventListener('DOMContentLoaded', function () {
             '</div>';
 
         document.body.appendChild(bubble);
+        document.body.appendChild(teaser);
         document.body.appendChild(win);
 
         function openChat() {
             win.classList.add('open');
             bubble.style.display = 'none';
+            teaser.classList.remove('visible');
             document.body.classList.add('chatbot-open');
         }
 
@@ -136,11 +146,18 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.classList.remove('chatbot-open');
         }
 
+        function dismissTeaser(e) {
+            if (e) e.stopPropagation();
+            teaser.classList.remove('visible');
+        }
+
         bubble.addEventListener('click', openChat);
         win.querySelector('.chatbot-close').addEventListener('click', closeChat);
+        teaser.addEventListener('click', openChat);
+        teaser.querySelector('.chatbot-teaser-close').addEventListener('click', dismissTeaser);
 
-        // Auto-open after 2 seconds
-        setTimeout(openChat, 2000);
+        // Show the teaser message after a short delay instead of opening the full chat.
+        setTimeout(function () { teaser.classList.add('visible'); }, 2000);
     })();
 
     // --- Contact form demo handling ---
